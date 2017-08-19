@@ -1,54 +1,57 @@
 <?php
-    //  вся процедура работает на сессиях. Именно в ней хранятся данные  пользователя, пока он находится на сайте. Очень важно запустить их в  самом начале странички!!!
     session_start();
-    ?>
-    <html>
-    <head>
-    <title>Главная страница</title>
-    </head>
-    <body>
-    <h2>Главная страница</h2>
-    <form action="testreg.php" method="post">
-
-    <!--****  testreg.php - это адрес обработчика. То есть, после нажатия на кнопку  "Войти", данные из полей отправятся на страничку testreg.php методом  "post" ***** -->
+?>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Landing Page for Anton's projects</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+  <body>
+    <h1>Please enter your login and password to continue</h1>
+    <div class="container">
+    <div class="row">
+    <div class="col-5">
+<form action="testreg.php" method="post">
+<p>
+    <label>Login:<br></label>
+    <input name="login" type="text" size="15" maxlength="15" id="forlogin">
+    </p>
  <p>
-    <label>Ваш логин:<br></label>
-    <input name="login" type="text" size="15" maxlength="15">
+ <label>Password:<br></label>
+    <input name="password" type="password" size="15" maxlength="15" id="forpassword">
     </p>
-
-
-    <!--**** В текстовое поле (name="login" type="text") пользователь вводит свой логин ***** -->
- 
-    <p>
-
-    <label>Ваш пароль:<br></label>
-    <input name="password" type="password" size="15" maxlength="15">
-    </p>
-
-    <!--**** В поле для паролей (name="password" type="password") пользователь вводит свой пароль ***** --> 
-
-    <p>
-    <input type="submit" name="submit" value="Войти">
-
-    <!--**** Кнопочка (type="submit") отправляет данные на страничку testreg.php ***** --> 
+<p>
+    <input type="submit" name="submit" value="Submit">
 <br>
- <!--**** ссылка на регистрацию, ведь как-то же должны гости туда попадать ***** --> 
-<a href="reg.php">Зарегистрироваться</a> 
-    </p></form>
+<a href="reg.php">Registration</a> 
+    </p>
+    </form>
     <br>
+    <input type="button" name="close" value="Close session" onclick="<?php session_destroy();?> location.reload();">
     <?php
-    // Проверяем, пусты ли переменные логина и id пользователя
     if (empty($_SESSION['login']) or empty($_SESSION['id']))
     {
-    // Если пусты, то мы не выводим ссылку
-    echo "Вы вошли на сайт, как гость<br><a href='#'>Эта ссылка  доступна только зарегистрированным пользователям</a>";
+    echo "You are not logged in<br><a href='#'>Only authorised users have an access to Anton's projects</a>";
     }
     else
     {
-
     // Если не пусты, то мы выводим ссылку
-    echo "Вы вошли на сайт, как ".$_SESSION['login']."<br><a  href='http://tvpavlovsk.sk6.ru/'>Эта ссылка доступна только  зарегистрированным пользователям</a>";
+    echo "You logged in as ".$_SESSION['login']."<br><a  href='loadingpage.php'>You can use this link to proceed</a>";
     }
     ?>
-    </body>
-    </html>
+    </div>
+    </div>
+    </div>
+     <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS as always :D -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -1,47 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<?php
+    //  вся процедура работает на сессиях. Именно в ней хранятся данные  пользователя, пока он находится на сайте. Очень важно запустить их в  самом начале странички!!!
+    session_start();
+    ?>
+    <html>
+    <head>
+    <title>Главная страница</title>
+    </head>
+    <body>
+    <h2>Главная страница</h2>
+    <form action="testreg.php" method="post">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/main.css">
-  </head>
-  <body>
-
-  <div class="container">
-    <header>
-    <h1>Please enter your password to continue</h1>
-</header>
-
-
-<div class="row">
-<div class="col-5">
-<form action="data.php" method="POST">
-      <p>User:</p> <input type="text" name="wer" id="inputUser"><br><br>
-      <p>Password:</p> <input type="text" name="pass" id="inputPassword"><br><br>  
-<input type="submit" id="inputSubmit">
-</form>
-</div>
-</div>
-<section>
+    <!--****  testreg.php - это адрес обработчика. То есть, после нажатия на кнопку  "Войти", данные из полей отправятся на страничку testreg.php методом  "post" ***** -->
+ <p>
+    <label>Ваш логин:<br></label>
+    <input name="login" type="text" size="15" maxlength="15">
+    </p>
 
 
+    <!--**** В текстовое поле (name="login" type="text") пользователь вводит свой логин ***** -->
+ 
+    <p>
 
+    <label>Ваш пароль:<br></label>
+    <input name="password" type="password" size="15" maxlength="15">
+    </p>
 
+    <!--**** В поле для паролей (name="password" type="password") пользователь вводит свой пароль ***** --> 
 
-</section>
+    <p>
+    <input type="submit" name="submit" value="Войти">
 
-</div>
+    <!--**** Кнопочка (type="submit") отправляет данные на страничку testreg.php ***** --> 
+<br>
+ <!--**** ссылка на регистрацию, ведь как-то же должны гости туда попадать ***** --> 
+<a href="reg.php">Зарегистрироваться</a> 
+    </p></form>
+    <br>
+    <?php
+    // Проверяем, пусты ли переменные логина и id пользователя
+    if (empty($_SESSION['login']) or empty($_SESSION['id']))
+    {
+    // Если пусты, то мы не выводим ссылку
+    echo "Вы вошли на сайт, как гость<br><a href='#'>Эта ссылка  доступна только зарегистрированным пользователям</a>";
+    }
+    else
+    {
 
-
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-  </body>
-</html>
+    // Если не пусты, то мы выводим ссылку
+    echo "Вы вошли на сайт, как ".$_SESSION['login']."<br><a  href='http://tvpavlovsk.sk6.ru/'>Эта ссылка доступна только  зарегистрированным пользователям</a>";
+    }
+    ?>
+    </body>
+    </html>

@@ -33,11 +33,16 @@ p {
 	margin-top: 10px;
 }
 
+#fadeDiv {
+	display: none;
+	max-width: 330px;
+  padding: 15px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
 #forlogin {
-margin-left: 14.1em;
 }
 
 #forpassword {
-margin-left: 12.4em;
 }
-

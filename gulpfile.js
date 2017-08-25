@@ -5,7 +5,7 @@ var browserSync = require('browser-sync').create();
 gulp.task('watch', function() {
   browserSync.init({
     server: {
-      baseDir: 'app/index.php'
+      baseDir: 'http://localhost/startingpage/startingpage/index.php'
     },
   })
 })

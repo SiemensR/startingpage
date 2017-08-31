@@ -1,48 +1,31 @@
 h1 {
-	position: relative;
-	text-align: center;
-	padding-top: 10em;
-	padding-bottom: 1em;
-}
+  position: relative;
+  text-align: center;
+  padding-top: 10em;
+  padding-bottom: 1em; }
 
-#inputUser {
-position: relative;
-top: 50%;
-  left: 50%;
+.inputUser {
+  position: relative;
+  top: 50%;
+    top-left: 50%;
   /* bring your own prefixes */
-  transform: translate(-50%, -50%);
-}
-
-#inputPassword {
-position: relative;
-top: 50%;
-  left: 50%;
+    top-transform: translate(-50%, -50%);
+  position: relative;
+  top: 50%;
+    top-left: 50%;
   /* bring your own prefixes */
-  transform: translate(-50%, -50%);
-}
-
-#inputSubmit {
-	position: relative;
-top: 50%;
-  left: 50%;
+    top-transform: translate(-50%, -50%);
+  position: relative;
+  top: 50%;
+    top-left: 50%;
   /* bring your own prefixes */
-  transform: translate(-50%, -50%);
-}
+    top-transform: translate(-50%, -50%); }
 
 p {
-	margin-top: 10px;
-}
-
-#fadeDiv {
-	display: none;
-	max-width: 330px;
-  padding: 15px;
-  margin-top: 30px;
-  margin-left: auto;
-  margin-right: auto;
-}
-#forlogin {
-}
-
-#forpassword {
-}
+  margin-top: 10px;
+  display: none;
+  max-width: 330px;
+    max-width-padding: 15px;
+    max-width-margin-top: 30px;
+    max-width-margin-left: auto;
+    max-width-margin-right: auto; }

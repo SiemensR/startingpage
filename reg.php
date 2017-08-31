@@ -15,10 +15,10 @@
     <label>Ваш пароль:<br></label>
     <input name="password" type="password" size="15" maxlength="15">
     </p>
-<!--**** В поле для паролей (name="password" type="password") пользователь вводит свой пароль ***** --> 
+<!--**** В поле для паролей (name="password" type="password") пользователь вводит свой пароль ***** -->
 <p>
     <input type="submit" name="submit" value="Submit">
-<!--**** Кнопочка (type="submit") отправляет данные на страничку save_user.php ***** --> 
+<!--**** Кнопочка (type="submit") отправляет данные на страничку save_user.php ***** -->
 </p></form>
     </body>
     </html>

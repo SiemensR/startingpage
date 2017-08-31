@@ -1,3 +1,3 @@
 <?php
-        $db = new mysqli("localhost","root","","users");
-        ?> 
+        $db = new mysqli("localhost","root","root","users");
+        ?>
